@@ -1,0 +1,182 @@
+﻿
+
+CREATE TABLE categoria_item (
+    id      INTEGER NOT NULL,
+    titulo  VARCHAR2(255) NOT NULL
+);
+
+ALTER TABLE categoria_item ADD CONSTRAINT categoria_item_pk PRIMARY KEY ( id );
+
+CREATE TABLE interesse (
+    id               INTEGER NOT NULL,
+    idusuario        INTEGER NOT NULL,
+    idoferta         INTEGER NOT NULL,
+    data             TIMESTAMP NOT NULL,
+    situacaonegocio  INTEGER NOT NULL
+);
+
+COMMENT ON COLUMN interesse.situacaonegocio IS
+    '0 -> Pendente
+1 -> Negócio fechado
+2 -> Negócio fechado parcialmente
+-1 -> Cancelado';
+
+ALTER TABLE interesse ADD CONSTRAINT interesse_pk PRIMARY KEY ( id );
+
+CREATE TABLE interesse_item (
+    id               INTEGER NOT NULL,
+    idinteresse      INTEGER NOT NULL,
+    idofertaitems    INTEGER NOT NULL,
+    quantidade       NUMBER(8, 8) NOT NULL,
+    situacaonegocio  INTEGER NOT NULL
+);
+
+COMMENT ON COLUMN interesse_item.situacaonegocio IS
+    '0 -> Pendente
+1 -> Negócio fechado
+-1 -> Cancelado';
+
+ALTER TABLE interesse_item ADD CONSTRAINT interesse_item_pk PRIMARY KEY ( id );
+
+CREATE TABLE mensagem (
+    id                     INTEGER NOT NULL,
+    idusuarioremetente     INTEGER NOT NULL,
+    idusuariodestinatario  INTEGER NOT NULL,
+    mensagem               VARCHAR2(1024) NOT NULL,
+    dataenvio              TIMESTAMP NOT NULL,
+    dataleitura            TIMESTAMP
+);
+
+ALTER TABLE mensagem ADD CONSTRAINT mensagem_pk PRIMARY KEY ( id );
+
+CREATE TABLE oferta (
+    id          INTEGER NOT NULL,
+    idusuario   INTEGER NOT NULL,
+    descricao   VARCHAR2(255) NOT NULL,
+    tipooferta  INTEGER NOT NULL,
+    data        TIMESTAMP NOT NULL,
+    situacao    INTEGER NOT NULL
+);
+
+COMMENT ON COLUMN oferta.tipooferta IS
+    '1 => Tenho o produto e estou o ofertando
+2 => Tenho interesse nesse produto';
+
+COMMENT ON COLUMN oferta.situacao IS
+    '0 -> Aberta
+1 -> Concluida
+-1 -> Cancelada/Excluida';
+
+ALTER TABLE oferta ADD CONSTRAINT oferta_pk PRIMARY KEY ( id );
+
+CREATE TABLE oferta_items (
+    id                INTEGER NOT NULL,
+    idoferta          INTEGER NOT NULL,
+    idcategoriaitem   INTEGER NOT NULL,
+    titulo            VARCHAR2(255) NOT NULL,
+    quantidade        NUMBER(8, 8) NOT NULL,
+    quantidademinima  NUMBER(8, 8),
+    quantidadepacote  NUMBER(8, 8),
+    unidademedida     VARCHAR2(255) NOT NULL,
+    situacao          INTEGER NOT NULL
+);
+
+COMMENT ON COLUMN oferta_items.situacao IS
+    '0 -> Aberta
+1 -> Concluida
+-1 -> Cancelada/Excluida';
+
+ALTER TABLE oferta_items ADD CONSTRAINT oferta_items_pk PRIMARY KEY ( id );
+
+CREATE TABLE usuario (
+    id        INTEGER NOT NULL,
+    nome      VARCHAR2(255) NOT NULL,
+    usuario   VARCHAR2(255) NOT NULL,
+    senha     VARCHAR2(255) NOT NULL,
+    telefone  VARCHAR2(255) NOT NULL,
+    email     VARCHAR2(255) NOT NULL,
+    situacao  INTEGER NOT NULL
+);
+
+ALTER TABLE usuario ADD CONSTRAINT usuario_pk PRIMARY KEY ( id );
+
+ALTER TABLE interesse_item
+    ADD CONSTRAINT interesse_item_interesse_fk FOREIGN KEY ( idinteresse )
+        REFERENCES interesse ( id );
+
+ALTER TABLE interesse_item
+    ADD CONSTRAINT interesse_item_oferta_items_fk FOREIGN KEY ( idofertaitems )
+        REFERENCES oferta_items ( id );
+
+ALTER TABLE interesse
+    ADD CONSTRAINT interesse_oferta_fk FOREIGN KEY ( idoferta )
+        REFERENCES oferta ( id );
+
+ALTER TABLE interesse
+    ADD CONSTRAINT interesse_usuario_fk FOREIGN KEY ( idusuario )
+        REFERENCES usuario ( id );
+
+ALTER TABLE mensagem
+    ADD CONSTRAINT mensagem_usuario_des_fk FOREIGN KEY ( idusuariodestinatario )
+        REFERENCES usuario ( id );
+
+ALTER TABLE mensagem
+    ADD CONSTRAINT mensagem_usuario_rem_fk FOREIGN KEY ( idusuarioremetente )
+        REFERENCES usuario ( id );
+
+ALTER TABLE oferta_items
+    ADD CONSTRAINT oferta_items_categoria_item_fk FOREIGN KEY ( idcategoriaitem )
+        REFERENCES categoria_item ( id );
+
+ALTER TABLE oferta_items
+    ADD CONSTRAINT oferta_items_oferta_fk FOREIGN KEY ( idoferta )
+        REFERENCES oferta ( id );
+
+ALTER TABLE oferta
+    ADD CONSTRAINT oferta_usuario_fk FOREIGN KEY ( idusuario )
+        REFERENCES usuario ( id );
+
+
+
+-- Relatório
+-- 
+-- CREATE TABLE                             7
+-- CREATE INDEX                             0
+-- ALTER TABLE                             16
+-- CREATE VIEW                              0
+-- ALTER VIEW                               0
+-- CREATE PACKAGE                           0
+-- CREATE PACKAGE BODY                      0
+-- CREATE PROCEDURE                         0
+-- CREATE FUNCTION                          0
+-- CREATE TRIGGER                           0
+-- ALTER TRIGGER                            0
+-- CREATE COLLECTION TYPE                   0
+-- CREATE STRUCTURED TYPE                   0
+-- CREATE STRUCTURED TYPE BODY              0
+-- CREATE CLUSTER                           0
+-- CREATE CONTEXT                           0
+-- CREATE DATABASE                          0
+-- CREATE DIMENSION                         0
+-- CREATE DIRECTORY                         0
+-- CREATE DISK GROUP                        0
+-- CREATE ROLE                              0
+-- CREATE ROLLBACK SEGMENT                  0
+-- CREATE SEQUENCE                          0
+-- CREATE MATERIALIZED VIEW                 0
+-- CREATE MATERIALIZED VIEW LOG             0
+-- CREATE SYNONYM                           0
+-- CREATE TABLESPACE                        0
+-- CREATE USER                              0
+-- 
+-- DROP TABLESPACE                          0
+-- DROP DATABASE                            0
+-- 
+-- REDACTION POLICY                         0
+-- 
+-- ORDS DROP SCHEMA                         0
+-- ORDS ENABLE SCHEMA                       0
+-- ORDS ENABLE OBJECT                       0
+-- 
+-- ERRORS                                   0
+-- WARNINGS                                 0
