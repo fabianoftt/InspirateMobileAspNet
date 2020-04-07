@@ -8,11 +8,11 @@ namespace InspirateMobileWeb.Models
 {
     public class CategoriaItem
     {
-        [Required(ErrorMessage = "O ID do item é requerido")]
+        [Required(ErrorMessage = "O ID da categoria é requerido")]
         public int Id { get; set; }
 
-        [Display(Name = "Item")]
-        [Required(ErrorMessage = "O nome do item é requerido")]
+        [Display(Name = "Nome da categoria")]
+        [Required(ErrorMessage = "O nome da categoria é requerido")]
         public string Titulo { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace InspirateMobileWeb.Controllers
 {
     public class OfertaController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             var listaModel = new List<Oferta>();
@@ -22,6 +23,28 @@ namespace InspirateMobileWeb.Controllers
             }
 
             return View(listaModel);
+        }
+
+        [HttpGet]
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Cadastrar(Oferta oferta)
+        {
+            if (ModelState.IsValid)
+            {
+                // DAO.cadastrar();
+                return RedirectToAction("Index", "Oferta");
+            }
+            else
+            {
+                return View(oferta);
+            }
+
         }
     }
 }

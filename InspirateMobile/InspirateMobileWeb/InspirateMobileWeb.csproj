@@ -12,4 +12,7 @@
     <ProjectReference Include="..\InspirateMobile.Infrastructure\InspirateMobile.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\.editorconfig" />
+  </ItemGroup>
 </Project>
