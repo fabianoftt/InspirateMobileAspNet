@@ -20,7 +20,7 @@ namespace InspirateMobile.Infrastructure.Repository
             {
                 //var config = new Microsoft.Extensions.Configuration.ConfigurationBuilder().(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build());
                 //optionsBuilder.UseOracle(config.GetConnectionString("FiapSmartCityConnection"));
-                optionsBuilder.UseOracle("Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = oracle.fiap.com.br)(PORT = 1521)))(CONNECT_DATA = (SID = orcl))); Persist Security Info = True; User ID = XXXX; Password = XXXX; Pooling = True; Connection Timeout = 60; ");
+                optionsBuilder.UseOracle("Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = oracle.fiap.com.br)(PORT = 1521)))(CONNECT_DATA = (SID = orcl))); Persist Security Info = True; User ID = xxxxxx; Password = xxxxx; Pooling = True; Connection Timeout = 60; ");
             }
         }
 

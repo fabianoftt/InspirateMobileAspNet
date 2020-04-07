@@ -13,7 +13,12 @@ namespace InspirateMobileWeb.Controllers
         public IActionResult Index()
         {
             CategoriaItemRepository ctc = new CategoriaItemRepository();
-
+            ctc.Inserir(new InspirateMobile.Infrastructure.Entidades.CategoriaItem 
+            {
+            Id = 0,
+            Titulo = "SOFA"
+            
+            });
             var lista = new List<CategoriaItem>();
             foreach (var item in ctc.Listar())
             {
