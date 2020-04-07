@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace InspirateMobileWeb.Controllers
 {
     public class CategoriaItemController : Controller
-    {     
+    {
+        [HttpGet]
         public IActionResult Index()
         {
             CategoriaItemRepository ctc = new CategoriaItemRepository();
@@ -30,6 +31,28 @@ namespace InspirateMobileWeb.Controllers
             }
 
             return View(lista);
+        }
+
+        [HttpGet]
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Cadastrar(CategoriaItem categoriaItem)
+        {
+            if (ModelState.IsValid)
+            {
+                // DAO.cadastrar();
+                return RedirectToAction("Index", "CategoriaItem");
+            }
+            else
+            {
+                return View(categoriaItem);
+            }
+
         }
     }
 }
