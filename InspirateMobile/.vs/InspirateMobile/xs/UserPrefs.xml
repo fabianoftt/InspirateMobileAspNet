@@ -1,16 +1,12 @@
 ﻿<Properties StartupConfiguration="{A590A933-01F2-46EF-9F53-3D9D27AD8725}|Default">
   <MonoDevelop.Ide.ItemProperties.Web.InspirateMobileWeb PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="InspirateMobileWeb/Views/Shared/_Layout.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="InspirateMobile.Infrastructure/Repository/CategoriaItemRepository.cs">
     <Files>
-      <File FileName="InspirateMobileWeb/Controllers/CategoriaItemController.cs" Line="33" Column="32" />
-      <File FileName="InspirateMobileWeb/Controllers/OfertaController.cs" Line="18" Column="38" />
-      <File FileName="InspirateMobileWeb/Models/CategoriaItem.cs" Line="14" Column="43" />
-      <File FileName="InspirateMobileWeb/Models/Oferta.cs" Line="8" Column="2" />
-      <File FileName="InspirateMobileWeb/Views/CategoriaItem/Index.cshtml" Line="1" Column="60" />
-      <File FileName="InspirateMobileWeb/Views/Oferta/Index.cshtml" Line="14" Column="22" />
-      <File FileName="InspirateMobileWeb/Views/CategoriaItem/Cadastrar.cshtml" Line="34" Column="29" />
-      <File FileName="InspirateMobileWeb/Views/Oferta/Cadastrar.cshtml" Line="30" Column="19" />
-      <File FileName="InspirateMobileWeb/Views/Shared/_Layout.cshtml" Line="1" Column="1" />
+      <File FileName="InspirateMobileWeb/Views/Oferta/Index.cshtml" Line="53" Column="22" />
+      <File FileName="InspirateMobileWeb/Views/Oferta/Cadastrar.cshtml" Line="57" Column="1" />
+      <File FileName="InspirateMobileWeb/Views/CategoriaItem/Cadastrar.cshtml" Line="37" Column="1" />
+      <File FileName="InspirateMobileWeb/Views/CategoriaItem/Index.cshtml" Line="45" Column="1" />
+      <File FileName="InspirateMobile.Infrastructure/Repository/CategoriaItemRepository.cs" Line="32" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,21 +14,17 @@
           <Node name="InspirateMobile" expanded="True">
             <Node name="Domain" expanded="True">
               <Node name="InspirateMobile.Infrastructure" expanded="True">
-                <Node name="Repository" expanded="True" />
+                <Node name="Repository" expanded="True">
+                  <Node name="CategoriaItemRepository.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
             <Node name="Web" expanded="True">
               <Node name="InspirateMobileWeb" expanded="True">
-                <Node name="Controllers" expanded="True" />
-                <Node name="Models" expanded="True" />
                 <Node name="Views" expanded="True">
                   <Node name="CategoriaItem" expanded="True" />
                   <Node name="Oferta" expanded="True" />
-                  <Node name="Shared" expanded="True">
-                    <Node name="_Layout.cshtml" selected="True" />
-                  </Node>
                 </Node>
-                <Node name="wwwroot" expanded="True" />
               </Node>
             </Node>
           </Node>
