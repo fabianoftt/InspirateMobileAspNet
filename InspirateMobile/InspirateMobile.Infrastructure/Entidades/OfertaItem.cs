@@ -19,7 +19,7 @@ namespace InspirateMobile.Infrastructure.Entidades
         public int IdOferta { get; set; }
 
         [Column("IDCATEGORIAITEM")]
-        public int IdCategoriaItem { get; set; }
+        public int IdCategoriaItem { get; set; }      
 
         [Required(ErrorMessage = "Titulo e obrigatório!")]
         [StringLength(50, ErrorMessage = "O titulo deve ter no máximo 50 caracteres")]
@@ -56,6 +56,10 @@ namespace InspirateMobile.Infrastructure.Entidades
         [Display(Name = "Situação:")]
         [Column("SITUACAO")]
         public int Situacao { get; set; }
+
+        //Navigation Property
+        public CategoriaItem Categoria { get; set; }
+        public Oferta Oferta { get; set; }
     }
 }
 

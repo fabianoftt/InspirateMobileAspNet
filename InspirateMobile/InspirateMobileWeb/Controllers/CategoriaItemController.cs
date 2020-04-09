@@ -13,6 +13,9 @@ namespace InspirateMobileWeb.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            OfertaItemRepository tcc = new OfertaItemRepository();
+            tcc.Consultar(1);
+
             CategoriaItemRepository ctc = new CategoriaItemRepository();
             ctc.Inserir(new InspirateMobile.Infrastructure.Entidades.CategoriaItem 
             {

@@ -1,4 +1,5 @@
 ﻿using InspirateMobile.Infrastructure.Entidades;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,19 @@ namespace InspirateMobile.Infrastructure.Repository
 
         public IList<OfertaItem> Listar()
         {
-            return context.OfertaItem.ToList();
+            return context
+                .OfertaItem
+                .Include(t => t.Categoria)
+                .Include(c => c.Oferta)
+                .ToList();
         }
 
         public OfertaItem Consultar(int id)
         {
-            return context.OfertaItem.Find(id);
+            return context.OfertaItem
+                .Include(t => t.Categoria)
+                .Include(c => c.Oferta)
+                .FirstOrDefault(c => c.Id == id);
         }
 
         public void Inserir(OfertaItem ofertaItem)
