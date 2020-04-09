@@ -122,3 +122,4 @@
 /Users/Alves/Documents/GitHub/InspirateMobileAspNet/InspirateMobile/InspirateMobileWeb/obj/Debug/netcoreapp3.1/InspirateMobileWeb.pdb
 /Users/Alves/Documents/GitHub/InspirateMobileAspNet/InspirateMobile/InspirateMobileWeb/obj/Debug/netcoreapp3.1/InspirateMobileWeb.genruntimeconfig.cache
 /Users/Alves/Documents/GitHub/InspirateMobileAspNet/InspirateMobile/InspirateMobileWeb/obj/Debug/netcoreapp3.1/Razor/Views/CategoriaItem/Cadastrar.cshtml.g.cs
+/Users/Alves/Documents/GitHub/InspirateMobileAspNet/InspirateMobile/InspirateMobileWeb/obj/Debug/netcoreapp3.1/Razor/Views/Oferta/Cadastrar.cshtml.g.cs
