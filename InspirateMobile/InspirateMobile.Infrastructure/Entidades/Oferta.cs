@@ -11,17 +11,17 @@ namespace InspirateMobile.Infrastructure.Entidades
     public class Oferta
     {
         [Key]
-        [Column("ID")]
+        [Column("IDOFERTA")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int IdOferta { get; set; }
 
         [Column("IDUSUARIO")]
         public int IdUsuario { get; set; }
 
-        [Column("ID")]
+        [Column("TIPOOFERTA")]
         public int TipoOferta { get; set; }
 
-        [Column("TIPOOFERTA")]
+        [Column("DESCRICAO")]
         public string Descricao { get; set; }
 
         [Required(ErrorMessage = "Data e obrigatório!")]

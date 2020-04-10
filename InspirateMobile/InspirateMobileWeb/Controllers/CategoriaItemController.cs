@@ -13,22 +13,14 @@ namespace InspirateMobileWeb.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            OfertaItemRepository tcc = new OfertaItemRepository();
-            tcc.Consultar(1);
+            CategoriaItemRepository cat = new CategoriaItemRepository();
 
-            CategoriaItemRepository ctc = new CategoriaItemRepository();
-            ctc.Inserir(new InspirateMobile.Infrastructure.Entidades.CategoriaItem 
-            {
-            Id = 0,
-            Titulo = "SOFA"
-            
-            });
             var lista = new List<CategoriaItem>();
-            foreach (var item in ctc.Listar())
+            foreach (var item in cat.Listar())
             {
                 lista.Add(new CategoriaItem
                 {
-                    Id = item.Id,
+                    Id = item.IdCategoriaItem,
                     Titulo = item.Titulo
                 });
             }

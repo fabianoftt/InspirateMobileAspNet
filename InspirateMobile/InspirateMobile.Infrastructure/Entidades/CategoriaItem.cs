@@ -10,9 +10,9 @@ namespace InspirateMobile.Infrastructure.Entidades
     public class CategoriaItem
     {
         [Key]
-        [Column("ID")]
+        [Column("IDCATEGORIAITEM")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int IdCategoriaItem { get; set; }
 
         [Required(ErrorMessage = "Titulo e obrigatório!")]
         [StringLength(50, ErrorMessage = "O titulo deve ter no máximo 50 caracteres")]

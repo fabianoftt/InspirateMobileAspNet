@@ -43,7 +43,7 @@ namespace InspirateMobile.Infrastructure.Repository
             // Criar um tipo produto apenas com o Id
             var usuario = new Usuario()
             {
-                Id = id
+                IdUsuario = id
             };
 
             context.Usuario.Remove(usuario);

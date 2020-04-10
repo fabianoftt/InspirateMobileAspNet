@@ -14,9 +14,11 @@ namespace InspirateMobileWeb.Models
         [Required(ErrorMessage = "O IdUsuario do item é requerido")]
         public int IdUsuario { get; set; }
 
+        [Display(Name = "Tipo de Oferta")]
         [Required(ErrorMessage = "O Tipo do item é requerido")]
         public int TipoOferta { get; set; }
 
+        [Display(Name = "Descrição")]
         [Required(ErrorMessage = "A descrição do item é requerido")]
         [MinLength(10, ErrorMessage = "Digite uma descrição com mais de 10 caracteres")]
         public string Descricao { get; set; }
@@ -26,5 +28,8 @@ namespace InspirateMobileWeb.Models
 
         [Required(ErrorMessage = "A situação do item é requerido")]
         public int Situacao { get; set; }
+
+        [Display(Name = "Situação")]
+        public string DesricaoSituacao { get; set; }
     }
 }

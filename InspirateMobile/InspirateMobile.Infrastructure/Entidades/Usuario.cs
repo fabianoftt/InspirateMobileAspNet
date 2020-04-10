@@ -11,9 +11,9 @@ namespace InspirateMobile.Infrastructure.Entidades
     public class Usuario
     {
         [Key]
-        [Column("ID")]
+        [Column("IDUSUARIO")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int IdUsuario { get; set; }
 
         [Required(ErrorMessage = "Nome e obrigatório!")]
         [StringLength(150, ErrorMessage = "O nome deve ter no máximo 150 caracteres")]

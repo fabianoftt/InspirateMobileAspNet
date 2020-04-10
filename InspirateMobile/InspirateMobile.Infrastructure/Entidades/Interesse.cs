@@ -11,9 +11,9 @@ namespace InspirateMobile.Infrastructure.Entidades
     public class Interesse
     {
         [Key]
-        [Column("ID")]
+        [Column("IDINTERESSE")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int IdInteresse { get; set; }
 
         [Column("IDUSUARIO")]
         public int IdUsuario { get; set; }
@@ -30,5 +30,9 @@ namespace InspirateMobile.Infrastructure.Entidades
         [Display(Name = "Situação Negócio:")]
         [Column("SITUACAONEGOCIO")]
         public int SituacaoNegocio { get; set; }
+
+        public Oferta Oferta { get; set; }
+
+        public Usuario Usuario { get; set; }
     }
 }

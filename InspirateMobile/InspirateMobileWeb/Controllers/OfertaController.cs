@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InspirateMobile.Infrastructure.Repository;
 using InspirateMobileWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,16 +14,32 @@ namespace InspirateMobileWeb.Controllers
         public IActionResult Index()
         {
             var listaModel = new List<Oferta>();
-            for (int i = 0; i < 100; i++)
+
+            OfertaRepository repo = new OfertaRepository();
+            foreach (var item in repo.Listar())
             {
                 listaModel.Add(new Oferta
                 {
-                    Id = i,
-                   Descricao = "Titulo " + i
+                    Id = item.IdOferta,
+                    Descricao = item.Descricao,
+                    Data = item.Data,
+                    Situacao = item.Situacao,
+                    IdUsuario = item.IdUsuario,
+                    TipoOferta = item.TipoOferta,
+                    DesricaoSituacao = StatusSituacao(item.Situacao)
                 });
             }
 
             return View(listaModel);
+        }
+
+        private string StatusSituacao(int sit)
+        {
+            if (sit == 1)
+            {
+                return "Disponivel";
+            }
+            return "Não Disponivel";
         }
 
         [HttpGet]

@@ -5,17 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Categoria Item</h1>
 
 <p>
     <a asp-action="Cadastrar">Novo cadastro</a>
     <a asp-action="Index" asp-controller="Home">Voltar</a>
 </p>
-<table class="table">
+<table class="table table-sm table-dark">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                @*@Html.DisplayNameFor(model => model.Id)*@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Titulo)
@@ -26,19 +26,23 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Titulo)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Detalhes", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Deletar", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Id)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" action="Edit">Editar</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" action="Details">Detalhes</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" action="Delete">Excluir</button>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

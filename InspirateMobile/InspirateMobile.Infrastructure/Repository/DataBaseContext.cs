@@ -1,5 +1,6 @@
 ﻿using InspirateMobile.Infrastructure.Entidades;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.IO;
 
 namespace InspirateMobile.Infrastructure.Repository
@@ -20,13 +21,14 @@ namespace InspirateMobile.Infrastructure.Repository
             {
                 //var config = new Microsoft.Extensions.Configuration.ConfigurationBuilder().(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build());
                 //optionsBuilder.UseOracle(config.GetConnectionString("FiapSmartCityConnection"));
-                optionsBuilder.UseOracle("Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = oracle.fiap.com.br)(PORT = 1521)))(CONNECT_DATA = (SID = orcl))); Persist Security Info = True; User ID = RM82022; Password = 070887; Pooling = True; Connection Timeout = 60; ");
+                optionsBuilder.UseOracle("Data Source = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1522))(CONNECT_DATA = (SERVICE_NAME = xe))); User Id = SYSTEM; Password = SE15#cplTeste;");
+                //optionsBuilder.UseOracle("Driver = (Oracle in XEClient); dbq = 111.21.31.99:1521 / XE; Uid = SYSTEM; Pwd = SE15#cplTeste;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

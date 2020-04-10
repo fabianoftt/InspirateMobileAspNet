@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace InspirateMobile.Infrastructure.Repository
 {
@@ -43,7 +44,7 @@ namespace InspirateMobile.Infrastructure.Repository
             // Criar um tipo produto apenas com o Id
             var interesse = new Interesse()
             {
-                Id = id
+                IdInteresse = id
             };
 
             context.Interesse.Remove(interesse);

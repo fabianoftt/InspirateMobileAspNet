@@ -11,15 +11,9 @@ namespace InspirateMobile.Infrastructure.Entidades
     public class InteresseItem
     {
         [Key]
-        [Column("ID")]
+        [Column("IDINTERESSEITEM")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        [Column("IDINTERESSE")]
-        public int IdInteresse { get; set; }
-
-        [Column("IDOFERTAITEMS")]
-        public int IdOfertaItems { get; set; }
+        public int IdInteresseItem { get; set; }
 
         [Required(ErrorMessage = "Quantidade e obrigatório!")]
         [Display(Name = "Quantidade:")]
@@ -30,5 +24,15 @@ namespace InspirateMobile.Infrastructure.Entidades
         [Display(Name = "Situação de negócio:")]
         [Column("SITUACAONEGOCIO")]
         public int SituacaoNegocio { get; set; }
+
+        [Column("IDINTERESSE")]
+        public int IdInteresse { get; set; }
+
+        public Interesse Interesse { get; set; }
+
+        [Column("IDOFERTAITEMS")]
+        public int IdOfertaItems { get; set; }
+
+        public OfertaItem OfertaItem { get; set; }
     }
 }

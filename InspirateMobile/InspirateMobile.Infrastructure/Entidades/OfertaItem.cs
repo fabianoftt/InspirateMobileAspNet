@@ -11,25 +11,15 @@ namespace InspirateMobile.Infrastructure.Entidades
     public class OfertaItem
     {
         [Key]
-        [Column("ID")]
+        [Column("IDOFERTAITEMS")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        [Column("IDOFERTA")]
-        public int IdOferta { get; set; }
-
-        [Column("IDCATEGORIAITEM")]
-        public int IdCategoriaItem { get; set; }      
+        public int IdOfertaItems { get; set; }
 
         [Required(ErrorMessage = "Titulo e obrigatório!")]
         [StringLength(50, ErrorMessage = "O titulo deve ter no máximo 50 caracteres")]
         [Display(Name = "Titulo:")]
         [Column("TITULO")]
         public string Titulo { get; set; }
-
-        [Required(ErrorMessage = "Data e obrigatório!")]
-        [Display(Name = "Data:")]
-        public DateTime Data { get; set; }
 
         [Required(ErrorMessage = "Quantidade e obrigatório!")]
         [Display(Name = "Quantidade:")]
@@ -57,9 +47,14 @@ namespace InspirateMobile.Infrastructure.Entidades
         [Column("SITUACAO")]
         public int Situacao { get; set; }
 
-        //Navigation Property
-        public CategoriaItem Categoria { get; set; }
+        [Column("IDOFERTA")]
+        public int IdOferta { get; set; }
+
         public Oferta Oferta { get; set; }
+
+        [Column("IDCATEGORIAITEM")]
+        public int IdCategoriaItem { get; set; }
+        public CategoriaItem CategoriaItem { get; set; }
     }
 }
 

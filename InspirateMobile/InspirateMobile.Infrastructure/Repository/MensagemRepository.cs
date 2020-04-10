@@ -7,54 +7,54 @@ using System.Text;
 
 namespace InspirateMobile.Infrastructure.Repository
 {
-    public class OfertaItemRepository
+   public class MensagemRepository
     {
         private readonly DataBaseContext context;
 
-        public OfertaItemRepository()
+        public MensagemRepository()
         {
             // Criando um instância da classe de contexto do EntityFramework
             context = new DataBaseContext();
         }
 
-        public IList<OfertaItem> Listar()
+        public IList<Mensagem> Listar()
         {
             return context
-                .OfertaItem
-                .Include(t => t.CategoriaItem)
-                .Include(c => c.Oferta)
+                .Mensagem
+                //.Include(t => t.UsuarioDestinatario)
+                //.Include(c => c.UsuarioRemetente)
                 .ToList();
         }
 
-        public OfertaItem Consultar(int id)
+        public Mensagem Consultar(int id)
         {
-            return context.OfertaItem
-                .Include(t => t.Oferta)
-                .Include(c => c.CategoriaItem)
-                .FirstOrDefault(c => c.IdOfertaItems == id);
+            return context.Mensagem
+               //.Include(t => t.UsuarioDestinatario)
+               // .Include(c => c.UsuarioRemetente)
+                .FirstOrDefault(c => c.IdMensagem == id);
         }
 
-        public void Inserir(OfertaItem ofertaItem)
+        public void Inserir(Mensagem mensagem)
         {
-            context.OfertaItem.Add(ofertaItem);
+            context.Mensagem.Add(mensagem);
             context.SaveChanges();
         }
 
-        public void Alterar(OfertaItem ofertaItem)
+        public void Alterar(Mensagem mensagem)
         {
-            context.OfertaItem.Update(ofertaItem);
+            context.Mensagem.Update(mensagem);
             context.SaveChanges();
         }
 
         public void Excluir(int id)
         {
             // Criar um tipo produto apenas com o Id
-            var ofertaItem = new OfertaItem()
+            var mensagem = new Mensagem()
             {
-                IdOfertaItems = id
+                IdMensagem = id
             };
 
-            context.OfertaItem.Remove(ofertaItem);
+            context.Mensagem.Remove(mensagem);
             context.SaveChanges();
         }
     }

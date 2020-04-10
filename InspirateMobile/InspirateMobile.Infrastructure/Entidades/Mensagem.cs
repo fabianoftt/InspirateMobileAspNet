@@ -11,15 +11,9 @@ namespace InspirateMobile.Infrastructure.Entidades
     public class Mensagem
     {
         [Key]
-        [Column("ID")]
+        [Column("IDMENSAGEM")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        [Column("IDUSUARIOREMETENTE")]
-        public int IdUsuarioRemetente { get; set; }
-
-        [Column("IDUSUARIODESTINATARIO")]
-        public int IdUsuarioDestinatario { get; set; }
+        public int IdMensagem { get; set; }
 
         [Required(ErrorMessage = "A Mensagem e obrigatório!")]
         [StringLength(300, ErrorMessage = "O titulo deve ter no máximo 300 caracteres")]
@@ -34,5 +28,11 @@ namespace InspirateMobile.Infrastructure.Entidades
 
         [Column("DATALEITURA")]
         public DateTime DataEnvio { get; set; }
+
+        [Column("IDUSUARIOREMETENTE")]
+        public int IdUsuarioRemetente { get; set; }
+
+        [Column("IDUSUARIODESTINATARIO")]
+        public int IdUsuarioDestinatario { get; set; }
     }
 }

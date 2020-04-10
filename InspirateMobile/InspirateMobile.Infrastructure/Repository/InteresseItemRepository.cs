@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace InspirateMobile.Infrastructure.Repository
 {
@@ -23,7 +24,10 @@ namespace InspirateMobile.Infrastructure.Repository
 
         public InteresseItem Consultar(int id)
         {
-            return context.InteresseItem.Find(id);
+            return context.InteresseItem
+                .Include(t => t.Interesse)
+                .Include(c => c.OfertaItem)
+                .FirstOrDefault(c => c.IdInteresseItem == id);
         }
 
         public void Inserir(InteresseItem interesseItem)
@@ -43,7 +47,7 @@ namespace InspirateMobile.Infrastructure.Repository
             // Criar um tipo produto apenas com o Id
             var interesseItem = new InteresseItem()
             {
-                Id = id
+                IdInteresseItem = id
             };
 
             context.InteresseItem.Remove(interesseItem);
