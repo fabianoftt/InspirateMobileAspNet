@@ -26,11 +26,21 @@ namespace InspirateMobileWeb.Controllers
                     Situacao = item.Situacao,
                     IdUsuario = item.IdUsuario,
                     TipoOferta = item.TipoOferta,
+                    DescricaoTipoOferta = StatusTipoOferta(item.TipoOferta),
                     DesricaoSituacao = StatusSituacao(item.Situacao)
                 });
             }
 
             return View(listaModel);
+        }
+
+        private string StatusTipoOferta(int tipoOferta)
+        {
+            if (tipoOferta == 1)
+            {
+                return "Remoção";
+            }
+            return "Não Disponivel";
         }
 
         private string StatusSituacao(int sit)
