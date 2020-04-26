@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace InspirateMobile.Infrastructure.Entidades
 {
@@ -45,6 +41,11 @@ namespace InspirateMobile.Infrastructure.Entidades
         [Display(Name = "Situação:")]
         [Column("SITUACAO")]
         public int Situacao { get; set; }
+
+        [Required(ErrorMessage = "O tipo de usuário e obrigatório!")]
+        [Display(Name = "TipoUsuario:")]
+        [Column("TIPOUSUARIO")]
+        public int TipoUsuario { get; set; }
     }
 }
 
