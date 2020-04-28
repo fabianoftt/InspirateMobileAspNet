@@ -30,7 +30,7 @@ namespace InspirateMobileWeb.API.Controllers
             OfertaRepository repository = new OfertaRepository();
             var resultado = repository.Listar().Select(x => _mapper.Map<Oferta>(x));
             //Consulta DAO
-            return new List<Oferta>();
+            return resultado.AsEnumerable<Oferta>();
         }
     }
 }

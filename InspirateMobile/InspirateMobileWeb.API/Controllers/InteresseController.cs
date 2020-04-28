@@ -28,10 +28,11 @@ namespace InspirateMobileWeb.API.Controllers
         public IEnumerable<Interesse> Get()
         {
             //Consulta DAO
-            InteresseRepository repository = new InteresseRepository();
-            var resultado = repository.Listar().Select(x => _mapper.Map<InteresseRepository>(x));
 
-            return new List<Interesse>();
+            InteresseRepository repository = new InteresseRepository();
+            var resultado = repository.Listar().Select(x => _mapper.Map<Interesse>(x));
+            //Consulta DAO
+            return resultado.OrderBy(c => c).AsEnumerable<Interesse>();
         }
     }
 }
