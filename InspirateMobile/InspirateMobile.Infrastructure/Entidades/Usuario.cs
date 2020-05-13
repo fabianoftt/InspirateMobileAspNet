@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InspirateMobile.Infrastructure.Entidades
@@ -46,6 +47,14 @@ namespace InspirateMobile.Infrastructure.Entidades
         [Display(Name = "TipoUsuario:")]
         [Column("TIPOUSUARIO")]
         public int TipoUsuario { get; set; }
+
+        [Display(Name = "DATACRIACAO:")]
+        [Column("DATACRIACAO")]
+        public DateTime DataCriacao { get; set; }
+
+        [Display(Name = "DATAATUALIZACAO:")]
+        [Column("DATAATUALIZACAO")]
+        public DateTime DataAtualizacao { get; set; }        
     }
 }
 

@@ -26,15 +26,17 @@ namespace InspirateMobile.Infrastructure.Repository
             return context.Usuario.Find(id);
         }
 
-        public void Inserir(Usuario oferta)
+        public void Inserir(Usuario usuario)
         {
-            context.Usuario.Add(oferta);
+            usuario.DataCriacao = DateTime.Now;
+            context.Usuario.Add(usuario);
             context.SaveChanges();
         }
 
-        public void Alterar(Usuario oferta)
+        public void Alterar(Usuario usuario)
         {
-            context.Usuario.Update(oferta);
+            usuario.DataAtualizacao = DateTime.Now;
+            context.Usuario.Update(usuario);
             context.SaveChanges();
         }
 
